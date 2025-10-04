@@ -1,11 +1,11 @@
-// src/api.js
+
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000", // backend server URL
+  baseURL: process.env.REACT_APP_PORTLINK || "http://localhost:5000", 
 });
 
-// Add token automatically if needed later
+
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
